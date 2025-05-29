@@ -65,16 +65,16 @@ cd ~/n8n-server
 
 <br>
 
-Khởi tạo tệp tin môi trường `.env`
+Khởi tạo môi trường `.env`
 
 Mở Terminal và gõ:
 
 ```bash
 sudo nano .env
 ```
-Sao chép nội dung bên dưới vào tệp tin `.env` của bạn và lưu lại bằng cách nhấn: `Ctrl + X` nhập `Y` và nhấn `Enter`
+Sao chép nội dung bên dưới vào môi trường `.env` của bạn và lưu lại bằng cách nhấn: `Ctrl + X` nhập `Y` và nhấn `Enter`
 
-```yaml
+```env
 # Tên miền của bạn
 DOMAIN_NAME=iaman95.io.vn
 # Tên miền con (Ví dụ: https://n8n.iaman95.io.vn để truy cập vào N8N)
@@ -217,3 +217,87 @@ Kiểm tra các container đang chạy
 ```bash
 sudo docker ps
 ```
+
+<br>
+<br>
+<br>
+
+## NẾU BẠN KHÔNG CÓ DOMAIN THÌ CÓ THỂ THAM KHẢO CÁCH SAU
+
+<br>
+
+Bạn điều chỉnh lại cấu hình trong `.env`
+
+```env
+DOMAIN_NAME=localhost
+SUBDOMAIN=n8n
+N8N_HOST=127.0.0.1
+N8N_PORT=5678
+N8N_PROTOCOL=http
+WEBHOOK_URL=http://127.0.0.1:5678/
+```
+
+<br>
+
+Điều chỉnh lại tệp tin `docker-compose.yml`
+
+```yaml
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_HOST=127.0.0.1
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - WEBHOOK_URL=http://127.0.0.1:5678/
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=postgres
+      - DB_POSTGRESDB_PORT=5432
+      - DB_POSTGRESDB_DATABASE=n8n
+      - DB_POSTGRESDB_USER=n8n
+      - DB_POSTGRESDB_PASSWORD=n8npassword
+      - QUEUE_MODE=redis
+      - QUEUE_REDIS_HOST=redis
+      - QUEUE_REDIS_PORT=6379
+    volumes:
+      - n8n_data:/home/node/.n8n
+    depends_on:
+      - postgres
+      - redis
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: n8n
+      POSTGRES_PASSWORD: n8npassword
+      POSTGRES_DB: n8n
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+
+volumes:
+  n8n_data:
+  postgres_data:
+```
+
+<br>
+
+Sau đó chạy:
+
+```bash
+sudo docker compose up -d
+```
+
+<br>
+
+Truy cập:
+
+<br>
+
+http://localhost:5678
+
+http://<IP-của-server>:5678
