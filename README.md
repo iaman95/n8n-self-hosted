@@ -224,6 +224,16 @@ sudo docker ps
 
 <br>
 
+Bạn tiến hành truy cập vào trang quản trị của Domain của bạn để tiến hành trỏ Domain đã thêm ở `Bước 4` về địa chỉ IP của máy chủ n8n
+
+Tạo bản ghi A và thêm subdomain và nhập địa chỉ IP của máy chủ n8n
+
+<br>
+
+### Bước 8:
+
+<br>
+
 Để truy cập bạn thay `<subdomain>.<domain-cua-ban>` bằng thông tin của bạn ở `Bước 4`
 
 ```html
