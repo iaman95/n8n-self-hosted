@@ -219,6 +219,25 @@ sudo docker ps
 ```
 
 <br>
+
+### Bước 7:
+
+<br>
+
+Để truy cập bạn thay `<subdomain>.<domain-cua-ban>` bằng thông tin của bạn ở `Bước 4`
+
+```html
+https://<subdomain>.<domain-cua-ban>
+```
+
+<br>
+
+Ví dụ:
+
+```html
+https://n8n.iaman95.io.vn/
+```
+<br>
 <br>
 <br>
 
