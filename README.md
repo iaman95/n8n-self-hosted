@@ -1,4 +1,4 @@
-# n8n-self-hosted
+# n8n-self-hosted with docker
 
 <br>
 
