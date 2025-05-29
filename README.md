@@ -17,6 +17,8 @@
 
 ### Bước 1:
 
+<br>
+
 SSH vào VPS
 
 <br>
@@ -76,11 +78,11 @@ Sao chép nội dung bên dưới vào môi trường `.env` của bạn và lư
 
 ```env
 # Tên miền của bạn
-DOMAIN_NAME=iaman95.io.vn
-# Tên miền con (Ví dụ: https://n8n.iaman95.io.vn để truy cập vào N8N)
+DOMAIN_NAME=example.com.vn
+# Tên miền con (Ví dụ: https://n8n.example.com.vn để truy cập vào N8N)
 SUBDOMAIN=n8n
 # Email xác thực SSL (Nhập bất kỳ theo ý)
-SSL_EMAIL=an.dinhdien@gmail.com
+SSL_EMAIL=example@gmail.com
 # Timezone
 GENERIC_TIMEZONE=Asia/Ho_Chi_Minh
 # Tên Database
@@ -245,7 +247,7 @@ https://<subdomain>.<domain-cua-ban>
 Ví dụ:
 
 ```html
-https://n8n.iaman95.io.vn/
+https://n8n.example.com.vn/
 ```
 <br>
 <br>
@@ -327,6 +329,12 @@ Truy cập:
 
 <br>
 
+```text
 http://localhost:5678
+```
 
-http://<IP-của-server>:5678
+<br>
+
+```text
+http://<IP-Server>:5678
+```
