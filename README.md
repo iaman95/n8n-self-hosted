@@ -368,11 +368,11 @@ Tải image n8n mới
 sudo docker pull docker.n8n.io/n8nio/n8n
 ```
 
-<br>
-
 > [!NOTE]
 >
 >`docker.n8n.io/n8nio/n8n` nó là nơi chứa thư mục cài đặt của n8n mà bạn đã khai báo ở trong tệp tin `docker-compose.yml` mục `image`
+
+<br>
 
 Dừng các container đang hoạt động
 
