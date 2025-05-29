@@ -6,6 +6,15 @@
 
 <br>
 
+## MỤC LỤC
+
+- YÊU CẦU<br>
+- CÁC BƯỚC THỰC HIỆN<br>
+- TRƯỜNG HỢP KHÔNG CÓ DOMAIN<br>
+- UPDATE N8N (KHÔNG MẤT DỮ LIỆU WORKFLOWS)
+
+<br>
+
 ## YÊU CẦU
 
 1. Máy chủ VPS (Azure, AWS, Google...) cài đặt hệ điều hành Linux (Ubuntu)
@@ -338,3 +347,47 @@ http://localhost:5678
 ```text
 http://<IP-Server>:5678
 ```
+
+<br>
+<br>
+<br>
+
+## UPDATE PHIÊN BẢN N8N
+
+<br>
+
+Bạn truy cập vào thư mục chính của n8n (Ví dụ: Thư mục cài đặt của n8n là `n8n-server`)
+
+```bash
+cd n8n-server
+```
+
+Tải image n8n mới
+
+```bash
+sudo docker pull docker.n8n.io/n8nio/n8n
+```
+
+<br>
+
+Chú thích: `docker.n8n.io/n8nio/n8n` nó là nơi chứa thư mục cài đặt của n8n mà bạn đã khai báo ở trong tệp tin `docker-compose.yml` mục `image`
+
+Dừng các container đang hoạt động
+
+```bash
+sudo docker compose --env-file .env down
+```
+
+Khởi động các container
+
+```bash
+sudo docker compose --env-file .env up -d
+```
+
+Kiểm tra xem các container đã chạy chưa
+
+```bash
+sudo docker ps
+```
+
+Cuối cùng là kiểm tra lại phiên bản mới trên giao diện của N8N
